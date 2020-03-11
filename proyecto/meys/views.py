@@ -21,7 +21,9 @@ from django.http import JsonResponse
 from django.views import View
 import time
 
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def index(request):
     return render(request, 'meys/indexmeys.html')
 

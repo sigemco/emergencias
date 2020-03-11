@@ -44,14 +44,16 @@
   </head>
   <body>
     <!-- ########## INICIO: PANEL IZQUIERDO ########## -->
+      {% block panelizquierdo %}
     <div class="br-logo">
-      <a href=""><span>[</span>Sistema <i>Meys</i><span>]</span></a>
+        <a href=""><span>[</span>Sistema <i>Meys</i><span>]</span></a>
     </div>
     <div class="br-sideleft sideleft-scrollbar">
+
       <label class="sidebar-label">Menú</label>
       <ul class="br-sideleft-menu">
         <li class="br-menu-item">
-          <a href="" class="br-menu-link active">
+          <a href="" class="br-menu-link">
             <i class="menu-item-icon icon ion-ios-home-outline tx-24"></i>
             <span class="menu-item-label">Inicio</span> </a
           ><!-- br-menu-link -->
@@ -127,14 +129,16 @@
         <!-- info-list-item -->
       </div>
       <!-- info-list -->
-
       <br />
     </div>
+    {% endblock panelizquierdo %}
     <!-- br-sideleft -->
     <!-- ########## FIN: PANEL IZQUIERDO ########## -->
 
     <!-- ########## INICIO: CABECERA ########## -->
+    {% block cabecera %}
     <div class="br-header">
+    
       <div class="br-header-left">
         <div class="navicon-left hidden-md-down">
           <a id="btnLeftMenu" href=""><i class="icon ion-navicon-round"></i></a>
@@ -351,7 +355,8 @@
           <!-- dropdown -->
           <div class="dropdown">
             <a href="" class="nav-link nav-link-profile" data-toggle="dropdown">
-              <span class="logged-name hidden-md-down">Katherine</span>
+              <span class="logged-name hidden-md-down">{% firstof request.user.get_short_name request.user.get_username %}</span>
+               
               <img
                 src="https://via.placeholder.com/500"
                 class="wd-32 rounded-circle"
@@ -360,45 +365,16 @@
               <span class="square-10 bg-success"></span>
             </a>
             <div class="dropdown-menu dropdown-menu-header wd-250">
-              <div class="tx-center">
-                <a href=""
-                  ><img
-                    src="https://via.placeholder.com/500"
-                    class="wd-80 rounded-circle"
-                    alt=""
-                /></a>
-                <h6 class="logged-fullname">Katherine P. Lumaad</h6>
-                <p>youremail@domain.com</p>
-              </div>
-              <hr />
-              <div class="tx-center">
-                <span class="profile-earning-label">Earnings After Taxes</span>
-                <h3 class="profile-earning-amount">
-                  $13,230 <i class="icon ion-ios-arrow-thin-up tx-success"></i>
-                </h3>
-                <span class="profile-earning-text">Based on list price.</span>
-              </div>
-              <hr />
+              
+              
               <ul class="list-unstyled user-profile-nav">
                 <li>
-                  <a href=""
-                    ><i class="icon ion-ios-person"></i> Edit Profile</a
-                  >
+                  <a href="{% url 'password_change' %}"
+                    ><i class="icon ion-ios-person"></i> Cambiar contraseña</a>
                 </li>
+               
                 <li>
-                  <a href=""><i class="icon ion-ios-gear"></i> Settings</a>
-                </li>
-                <li>
-                  <a href=""><i class="icon ion-ios-download"></i> Downloads</a>
-                </li>
-                <li>
-                  <a href=""><i class="icon ion-ios-star"></i> Favorites</a>
-                </li>
-                <li>
-                  <a href=""><i class="icon ion-ios-folder"></i> Collections</a>
-                </li>
-                <li>
-                  <a href=""><i class="icon ion-power"></i> Sign Out</a>
+                  <a href="{% url 'logout' %}"><i class="icon ion-power"></i> Cerrar sesión</a>
                 </li>
               </ul>
             </div>
@@ -419,12 +395,15 @@
         <!-- navicon-right -->
       </div>
       <!-- br-header-right -->
+      
     </div>
+    {% endblock cabecera %}
     <!-- br-header -->
     <!-- ########## FIN: CABECERA ########## -->
 
     <!-- ########## INICIO: PANEL DERECHO ########## -->
     <div class="br-sideright">
+     {% block panelderecho %} 
       <ul class="nav nav-tabs sidebar-tabs" role="tablist">
         <li class="nav-item">
           <a
@@ -991,6 +970,7 @@
         </div>
       </div>
       <!-- tab-content -->
+      {% endblock panelderecho %}
     </div>
     <!-- br-sideright -->
     <!-- ########## FIN: PANEL DERECHO ########## --->
