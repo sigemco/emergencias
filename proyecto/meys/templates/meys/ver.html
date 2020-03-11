@@ -1,0 +1,37 @@
+{% extends 'base-meys.html' %}
+{% block contenido %}
+    <div class="row mb-5">
+            <div class="card col-md-3">
+                <h6 class="mt-4"><strong>Menú</strong></h6> 
+                <!--
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Dashboard</li>
+                    <li class="list-group-item active">Postres</li>
+                    <li class="list-group-item">Configuración</li>
+                </ul>-->
+                <li class="list-group-item"><a href="{% url 'inicioDocumento'%}">Inicio</a></li>
+                <li class="list-group-item"><a href="{% url 'listarDocumento'%}">Documentos</a></li>
+            </div>
+
+            <div class="col-md-9">
+                <div class="table-responsive">
+                    <nav aria-label="breadcrumb mb-3">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'listarDocumento' %}">Documentos</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Detalles</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">{{object.documento}}</a></li>
+                        </ol>
+                    </nav>
+                    <div class="formulario" align="left">
+                        <h4>Detalles</h4>
+                            <p><span class="txt_negrita">Nombre:</span> <br> {{object.documento}}</p>
+                            <p><span class="txt_negrita">Precio:</span> <br> {{object.destino}}</p>
+                            <p><span class="txt_negrita">Término:</span> <br> {{object.termino}}</p>
+                            <a href="{% url 'listarDocumento'%}" type="submit" class="btn btn-primary">Volver</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+{% endblock contenido%}

@@ -1,0 +1,67 @@
+{% extends 'base.html'%}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+{% block contenido%}
+<div class="login-box">
+  <div class="login-logo">
+    <a href=""><b>SIGEMCO</b></a>
+  </div>
+</div>
+
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-6 col-sm-8">
+            <div class="card">
+                <div class="card-body login-card-body">
+                     <p class="login-box-msg">Inicie sesión para usar el sistema</p>
+                    <form method="post" novalidate>
+                        {% csrf_token %}
+                        {% if form.non_field_errors %}
+                        <div class="alert alert-danger" role="alert">
+                            {% for error in form.non_field_errors %}
+                            <p {% if forloop.last %} class="mb-0" {% endif %}>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% for hidden in form.hidden_fields %}
+                        {{ hidden }}
+                        {% endfor %}
+                        {% for field in form.visible_fields %}
+                        <div class="form-group mb-3">
+                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                            {{ field|add_class:'form-control' }}
+                            {% for error in field.errors %}
+                            <span class="text-danger help-block">{{ error }}</span>
+                            {% endfor %}
+                            {% if field.help_text %}
+                            <small class="form-text text-muted">
+                                {{ field.help_text|safe }}
+                            </small>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                        <!--
+                        <script src='https://www.google.com/recaptcha/api.js'></script>
+                        <div class="g-recaptcha" data-sitekey="6Ld5g78UAAAAAEqyEF6o18M4xR0YHD9g2jQl-1tE"></div>-->
+                        <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
+                        <!--<a href="{% url 'password_reset' %}" class="btn btn-link">Olvidó su contraseña?</a>-->
+                    </form>
+                    <!--
+                      <p class="mb-1">
+        <a href="forgot-password.html">Olvidé mi contraseña</a>
+      </p>
+      <p class="mb-0">
+        <a href="register.html" class="text-center">Registrarse</a>
+      </p>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+{% endblock %}
+

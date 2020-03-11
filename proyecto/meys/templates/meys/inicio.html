@@ -1,0 +1,28 @@
+{% extends 'base-meys.html' %}
+{% block contenido %}
+      
+
+          <div class="row mb-5">
+
+            <div class="card col-md-3">
+              <h6 class="mt-4"><strong>Menú</strong></h6> 
+              
+              <ul class="list-group list-group-flush">
+                <!--<li class="list-group-item">Dashboard</li>
+                <li class="list-group-item active">Postres</li>-->
+                <li class="list-group-item active">Inicio</li>
+                <li class="list-group-item"><a href="{% url 'listarDocumento'%}">Documentos</a></li>
+              </ul>
+            </div>
+
+            <div class="col-md-9">
+                <h4>Inicio</h4>
+                 {% for doc in documentos %}
+                  {{doc.documento}} - {{doc.destino}} 
+                  {% endfor %}
+            </div>
+          </div>
+          <hr>
+        </div>
+{% endblock contenido %}
+ 

@@ -1,0 +1,129 @@
+<!-- Main content -->
+        <div class="content body">
+       
+        <!--Fila para las tarjetas-->
+         <div class="row">
+             <div class="col-md-4 col-sm-6 col-xs-12">
+              <!-- small box -->
+              <div class="small-box bg-aqua">
+                <div class="inner">
+                  <h3>Personal</h3><h4></h4>
+                  <p><h4><strong>Personal desplegado: 50.000</strong></h4></p>
+                  
+                </div>
+                <div class="icon">
+                
+                  <i class="ion ion-ios-person "></i>
+                </div>
+                <a href="#" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <!-- small box -->
+              <div class="small-box bg-green">
+                <div class="inner">
+                  <h3>Material<sup style="font-size: 20px"></sup></h3>
+                 <p><h4><strong>Vehículos provistos: 10.000</strong></h4></p>
+                 <p><h4><strong>Alquilados: 5.000</strong></h4></p>
+                 
+                </div>
+                <div class="icon">
+                  <i class="ion-android-bus"></i>
+                </div>
+                <a href="#" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <!-- small box -->
+              <div class="small-box bg-red">
+                <div class="inner">
+                  <h3>Escuelas</h3>
+                  <p><h4><strong>Cantidad de locales: 14.000</strong></h4></p>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-home"></i>
+                </div>
+                <a href="#" class="small-box-footer">Más inforación <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+           
+         </div><!--fin fila de tarjetas-->
+        <!--Fila para mapa y grafico circular-->
+         <div class="row">
+          <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="box box-default">
+              <div class="box-header with-border">
+                <h3 class="box-title">Mapa de la argentina</h3>
+                <div class="box-tools pull-right">
+                  <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                </div><!-- /.box-tools --> 
+              </div><!-- /.box-header -->
+              <div class="box-body">
+                Ver que novedades que se mostrarán
+              </div><!-- /.box-body -->
+              </div><!-- /.box -->
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+               <div class="box box-default">
+              <div class="box-header with-border">
+                <h3 class="box-title">Algún gráfico estadístico</h3>
+                <div class="box-tools pull-right">
+                  <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                </div><!-- /.box-tools -->
+              </div><!-- /.box-header -->
+              <div class="box-body">
+                <canvas id="grafico" style="height:250px"></canvas>
+              </div><!-- /.box-body -->
+              </div><!-- /.box -->
+          </div>
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                  <div class="box box-default">
+                    <div class="box-header with-border">
+                    <h3 class="box-title">Novedades de locales</h3>
+
+                      <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                       
+                      </div>
+                    </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="chart-responsive">
+                    <canvas id="pieChart" height="150"></canvas>
+                  </div>
+                  <!-- ./chart-responsive -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-6">
+                  <ul class="chart-legend clearfix">
+                    <li><i class="fa fa-circle-o text-green"></i> Iniciados sin novedad</li>
+                    <li><i class="fa fa-circle-o text-yellow"></i> Iniciados con novedad subsanada</li>
+                    <li><i class="fa fa-circle-o text-red"></i> Iniciados sin novedad subsanada</li>
+                    
+                  </ul>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+           
+                    <!--
+                                <h3 class="box-title">Gráfico resumen de novedades</h3>
+                                <div class="box-tools pull-right">
+                                  <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                </div><!-- /.box-tools -->
+                    </div><!-- /.box-header -->
+                    <div class="box-body">
+                      <canvas id="pieChart" style="height:250px"></canvas>
+                    </div><!-- /.box-body -->
+                  </div><!-- /.box -->
+                    
+                  </div>
+                </div>
+         </div><!--fin fila del mapa y grafico circular-->
+          

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block contenido%}
+
+
+<!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0 text-dark">Estado de usuarios</h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                                <li class="breadcrumb-item active">Estado de usuarios</li>
+                            </ol>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                <input id="solicitar" type="button" value="Solicitar"/>
+                  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre de usuario</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody id="new_user">
+      {% include "modificar_estado_usuarios.html" %}
+    </tbody>
+  </table>
+                </div><!-- /.container-fluid -->
+            </section>
+            <!-- /.content -->
+
+
+{% endblock %}
+{% block extra_js%}
+
+{% endblock %}

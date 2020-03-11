@@ -1,0 +1,69 @@
+{% extends 'base-meys.html' %} {% load static %} {% block contenido %}
+<div class="row mb-5">
+  <div class="card col-md-3">
+    <h6 class="mt-4"><strong>Menú</strong></h6>
+
+    <ul class="list-group list-group-flush">
+      <!--<li class="list-group-item">Dashboard</li>
+          <li class="list-group-item active">Postres</li>-->
+      <li class="list-group-item">
+        <a href="{% url 'inicioDocumento'%}">Inicio</a>
+      </li>
+      <li class="list-group-item">
+        <a href="{% url 'listarDocumento'%}">Documentos</a>
+      </li>
+      <li class="list-group-item">
+        <a href="{% url 'basic_upload' %}">Carga básica</a>
+      </li>
+      <li class="list-group-item active">
+        Drag and drop
+      </li>
+      <li class="list-group-item ">
+        <a href="{% url 'progress_bar_upload' %}">Barra de progreso</a>
+      </li>
+      <li class="list-group-item">
+        <a href="{% url 'clear_database' %}">Borrar archivo subidos</a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <div
+      class="well text-muted text-center"
+      style="padding-top: 4rem; padding-bottom: 4rem;"
+    >
+      <span
+        class="glyphicon glyphicon-arrow-down"
+        style="font-size: 4rem;"
+      ></span>
+      <h3>Arrastre sus fotos aquí para subirlas</h3>
+    </div>
+
+    <input
+      id="fileupload"
+      type="file"
+      name="file"
+      multiple
+      style="display: none;"
+      data-url="{% url 'basic_upload' %}"
+      data-form-data='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'
+    />
+    <table id="gallery" class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Photo</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for photo in photos %}
+        <tr>
+          <td><a href="{{ photo.file.url }}">{{ photo.file.name }}</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock contenido %} {% block javascript %}
+<script src="{% static 'meys/js/drag-and-drop-upload.js' %}"></script>
+{% endblock javascript %}
