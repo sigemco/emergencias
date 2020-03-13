@@ -41,10 +41,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'widget_tweaks',
     'core',
-    'personal',
     # necesario delcarar la aplicacion asi como sigue para q reconozca signals.py
-    'elecciones.apps.EleccionesConfig',
-    'meys',
+    'emergencias.apps.EmergenciasConfig',
     'bootstrap4',
     'guardian',
     'groups_manager',

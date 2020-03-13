@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     #path('personal/', include('personal.urls')),
-    path('', include('meys.urls')),
+    path('', include('emergencias.urls')),
     #path('', include('elecciones.urls')),
 ]
 # https://simpleisbetterthancomplex.com/tutorial/2016/08/01/how-to-upload-files-with-django.html

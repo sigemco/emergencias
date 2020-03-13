@@ -9,7 +9,7 @@ from django.template.loader import render_to_string
 from asgiref.sync import async_to_sync
 
 
-class EleccionesConsumer(AsyncJsonWebsocketConsumer):
+class EmergenciasConsumer(AsyncJsonWebsocketConsumer):
 	async def connect(self):
 		await self.accept()
 		await self.channel_layer.group_add("users", self.channel_name)
@@ -61,10 +61,9 @@ class EleccionesConsumer(AsyncJsonWebsocketConsumer):
 			if user1.estado.status == True:
 				logueados = logueados + 1
 		await self.send_json(logueados)
-		
+
 
 	@database_sync_to_async
 	def update_user_status(self, user,status):
 		print(f"{user.username} cambió el estado")
 		return Estado.objects.filter(user_id=user.pk).update(status=status)
-

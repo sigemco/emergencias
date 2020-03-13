@@ -46,7 +46,7 @@
     <!-- ########## INICIO: PANEL IZQUIERDO ########## -->
       {% block panelizquierdo %}
     <div class="br-logo">
-        <a href=""><span>[</span>Sistema <i>Meys</i><span>]</span></a>
+        <a href=""><span>[</span>SIGEMCO-<i>EMER</i><span>]</span></a>
     </div>
     <div class="br-sideleft sideleft-scrollbar">
 
@@ -138,7 +138,7 @@
     <!-- ########## INICIO: CABECERA ########## -->
     {% block cabecera %}
     <div class="br-header">
-    
+
       <div class="br-header-left">
         <div class="navicon-left hidden-md-down">
           <a id="btnLeftMenu" href=""><i class="icon ion-navicon-round"></i></a>
@@ -356,7 +356,7 @@
           <div class="dropdown">
             <a href="" class="nav-link nav-link-profile" data-toggle="dropdown">
               <span class="logged-name hidden-md-down">{% firstof request.user.get_short_name request.user.get_username %}</span>
-               
+
               <img
                 src="https://via.placeholder.com/500"
                 class="wd-32 rounded-circle"
@@ -365,14 +365,14 @@
               <span class="square-10 bg-success"></span>
             </a>
             <div class="dropdown-menu dropdown-menu-header wd-250">
-              
-              
+
+
               <ul class="list-unstyled user-profile-nav">
                 <li>
                   <a href="{% url 'password_change' %}"
                     ><i class="icon ion-ios-person"></i> Cambiar contraseña</a>
                 </li>
-               
+
                 <li>
                   <a href="{% url 'logout' %}"><i class="icon ion-power"></i> Cerrar sesión</a>
                 </li>
@@ -395,7 +395,7 @@
         <!-- navicon-right -->
       </div>
       <!-- br-header-right -->
-      
+
     </div>
     {% endblock cabecera %}
     <!-- br-header -->
@@ -403,7 +403,7 @@
 
     <!-- ########## INICIO: PANEL DERECHO ########## -->
     <div class="br-sideright">
-     {% block panelderecho %} 
+     {% block panelderecho %}
       <ul class="nav nav-tabs sidebar-tabs" role="tablist">
         <li class="nav-item">
           <a
