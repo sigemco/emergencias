@@ -1,12 +1,55 @@
+
 {% extends 'base.html' %}
+{% load static %}
+{% load leaflet_tags %}
+
+{% block extra_css %} {% leaflet_css %}
+<style>
+
+    .leaflet-container {  /* all maps */
+          height: 600px;
+    }
+
+    </style>
+{% endblock %}
+
+
+
 {% block panelderecho %}
 {% endblock panelderecho %}
+
+
+
+
  {% block contenido %}
-<div class="br-pagetitle">
-  <i class="icon ion-ios-home-outline tx-70 lh-0"></i>
-  <div>
-    <h4>Inicio</h4>
-  </div>
-</div>
-<h4>Hola del index de meys</h4>
+
+
+
+{% leaflet_map "map" callback="window.map_init" %}
+
+
+
+
+
+{% endblock %}
+{% block extra_js %}{% leaflet_js %}
+<script type="text/javascript">
+
+
+function map_init(map, options) {
+  $.get('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-15-2020.csv', function(csvContents) {
+    var geoLayer = L.geoCsv(csvContents, {firstLineTitles: true, fieldSeparator: ',',
+    latitudeTitle:'Latitude',longitudeTitle:'Longitude',onEachFeature: function (feature, layer) {
+    
+    layer.bindPopup('<strong> Concecionario:</strong>' + feature.properties.provincestate);
+  },});
+    map.addLayer(geoLayer);
+  });
+//    console.log('pepe');
+//}
+
+}
+
+</script>
+
 {% endblock %}

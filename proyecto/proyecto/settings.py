@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'widget_tweaks',
     'core',
+    'leaflet',
     # necesario delcarar la aplicacion asi como sigue para q reconozca signals.py
     'emergencias.apps.EmergenciasConfig',
     'bootstrap4',
@@ -165,3 +166,38 @@ LOGIN_REDIRECT_URL = '/index/'
 LOGOUT_REDIRECT_URL = '/'
 
 AUTH_USER_MODEL = 'core.UserSigemco'
+
+LEAFLET_CONFIG = {
+'DEFAULT_CENTER': (-40.66,-58.72),
+'DEFAULT_ZOOM': 4,
+'MIN_ZOOM': 3,
+'MAX_ZOOM': 18,
+'TILES': [('OSM','http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{'attribution': '&copy; Big eye', 'maxZoom': 16}),
+          ('Rutas','https://{s}.google.com/vt/lyrs=m@221097413,traffic&x={x}&y={y}&z={z}', { 'maxZoom': 20,'minZoom': 2,
+                            'subdomains': ['mt0', 'mt1', 'mt2', 'mt3'],
+    }),('Relieve','http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}',{
+    'maxZoom': 20,
+    'subdomains':['mt0','mt1','mt2','mt3']}),
+    ('Hibrido','http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}',{
+    'maxZoom': 20,
+    'subdomains':['mt0','mt1','mt2','mt3']
+}),
+    ('Argis', 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        'attribution': '&copy',
+        'maxZoom': 18,
+        }),('Argenmap','http://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0.0/capabaseargenmap@EPSG%3A3857@png/{z}/{x}/{y}.png', {
+		    'tms': 'true',
+		    'maxZoom': 21,
+		    'attribution': 'atrib_ign'
+			})],
+'PLUGINS': {
+'leafletCSV': {
+        'js': 'app/lib/leaflet/leaflet.geocsv.js',
+        'auto-include': True,
+    },
+
+
+}
+
+
+}
