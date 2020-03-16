@@ -37,18 +37,31 @@
 
 
 function map_init(map, options) {
-  $.get('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-15-2020.csv', function(csvContents) {
-    var geoLayer = L.geoCsv(csvContents, {firstLineTitles: true, fieldSeparator: ',',
-    latitudeTitle:'Latitude',longitudeTitle:'Longitude',onEachFeature: function (feature, layer) {
-    
-    layer.bindPopup('<strong> Concecionario:</strong>' + feature.properties.provincestate);
-  },});
-    map.addLayer(geoLayer);
-  });
+  var geoLayer = L.geoCsv(null, {
+  onEachFeature: function (feature, layer) {
+      var popup = '';
+      for (var clave in feature.properties) {
+        var title = geoLayer.getPropertyTitle(clave);
+        popup += '<b>'+title+' </b>'+feature.properties[clave]+'<br />';
+      }
+      layer.bindPopup(popup);
+    },
+    firstLineTitles: true,
+     fieldSeparator: ',',
+    latitudeTitle:'Latitude',
+    longitudeTitle:'Longitude'
+    });
+    //map.addLayer(geoLayer);
+    $.get('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-15-2020.csv', function(csv) {
+      geoLayer.addData(csv);
+
+    })
+    geoLayer.addTo(map)
+  };
 //    console.log('pepe');
 //}
 
-}
+
 
 </script>
 
