@@ -189,10 +189,16 @@ LEAFLET_CONFIG = {
 		    'tms': 'true',
 		    'maxZoom': 21,
 		    'attribution': 'atrib_ign'
-			})],
+			}),],
+
+'OVERLAYS': [],
 'PLUGINS': {
 'leafletCSV': {
         'js': 'app/lib/leaflet/leaflet.geocsv.js',
+        'auto-include': True,
+    },
+'cartodb': {
+        'js': 'app/lib/leaflet/L.CartoDB.js',
         'auto-include': True,
     },
 
