@@ -1,9 +1,67 @@
 from django.contrib import admin
-from .models import Estado
+from .models import Estado, Persona, Grado, Especialidad, TipOperacion, TipoTransporte,  Medios, CentroSalud, Efectos, OperacionesEnDesarrollo, Unidades
 from datetime import datetime
 from django.http import HttpResponse
 from io import BytesIO
 from django.conf import settings
+
+from leaflet.admin import LeafletGeoAdmin
+
+@admin.register(Unidades)
+class UnidadesAdmin(admin.ModelAdmin):
+    list_display = ('unidad',)
+
+@admin.register(TipOperacion)
+class TipoOeracionAdmin(admin.ModelAdmin):
+    list_display = ('tipo',)
+
+@admin.register(TipoTransporte)
+class TipoTransporteAdmin(admin.ModelAdmin):
+    list_display = ('tipotransporte',)
+    search_fields = ['tipotransporte']
+
+@admin.register(Medios)
+class MediosAdmin(admin.ModelAdmin):
+    list_display = ('medio',)
+
+@admin.register(CentroSalud)
+class CentroSaludAdmin(admin.ModelAdmin):
+    list_display = ('centro',)
+    search_fields = ['centro']
+
+
+@admin.register(Efectos)
+class EfectosAdmin(admin.ModelAdmin):
+    list_display = ('efecto','unidad',)
+    search_fields = ['efecto']
+
+"""
+@admin.register(Persona)
+class PersonaAdmin(admin.ModelAdmin):
+    list_display = ('nombre', 'fecha_nacimiento',)
+    search_fields = ['nombre']
+    autocomplete_fields = ['especialidad',]
+"""
+class PersonaAdmin(LeafletGeoAdmin):
+    list_display = ('nombre', 'fecha_nacimiento',)
+    search_fields = ['nombre']
+    autocomplete_fields = ['especialidad',]
+
+admin.site.register(Persona, PersonaAdmin)
+
+@admin.register(Grado)
+class GradoAdmin(admin.ModelAdmin):
+    list_display = ('grado',)
+
+@admin.register(Especialidad)
+class EspecialidadAdmin(admin.ModelAdmin):
+    list_display = ('especialidad',)
+    search_fields = ['especialidad']
+
+@admin.register(OperacionesEnDesarrollo)
+class OperacionesEnDesarrolloAdmin(admin.ModelAdmin):
+    list_display = ('titulo','mision','objetivo','tipoperacion')
+    autocomplete_fields = ['efectos','centrosalud', 'personal','tipotransporte']
 
 
 

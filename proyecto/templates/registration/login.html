@@ -1,22 +1,12 @@
-{% extends 'base.html'%}
+{% extends 'signin-video.html'%}
 
 {# -Por ahora no uso esta libreria % load crispy_forms_tags % #}
 {% load widget_tweaks %}
 
-{% block panelizquierdo %}
-{% endblock panelizquierdo %}
-
-{% block cabecera %}
-{% endblock cabecera %}
-
-{% block panelderecho %}
-{% endblock panelderecho %}
-
-{% block contenido%}
-  <div class="d-flex align-items-center justify-content-center ht-100v">
-      <div class="login-wrapper wd-300 wd-xs-350 pd-25 pd-xs-40 bg-br-primary rounded bd bd-white-1">
-        <div class="signin-logo tx-center tx-28 tx-bold tx-white"><span class="tx-normal"></span> SIGEMCO<span class="tx-info">EMER</span> <span class="tx-normal"></span></div>
-        <div class="tx-center mg-b-60">Sistema de Gestion de Emergencias</div>
+{% block fomulario %}
+      <div class="login-wrapper wd-300 wd-xs-350 pd-25 pd-xs-40 rounded bg-black-6">
+        <div class="signin-logo tx-center tx-28 tx-bold tx-white"><span class="tx-normal">[</span> SIGEMCO <span class="tx-info">MAE</span> <span class="tx-normal">]</span></div>
+  <div class="tx-white-5 tx-center mg-b-20">Asistencia en emergencias</div>
         <form method="post" novalidate>
                         {% csrf_token %}
                         {% if form.non_field_errors %}
@@ -46,7 +36,8 @@
                          <button type="submit" class="btn btn-info btn-block">Iniciar sesión</button>
                     </form>
       </div><!-- login-wrapper -->
-    </div><!-- d-flex -->
+      {% endblock  %}
+    <!-- d-flex -->
 
 <!--
 <div class="container">
@@ -89,4 +80,3 @@
     </div>
 </div>
 -->
-{% endblock contenido%}
