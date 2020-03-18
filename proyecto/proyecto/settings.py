@@ -25,7 +25,7 @@ SECRET_KEY = 'svgiw=kkkila#z3=xp^2!fd0@o#u0pvi6(d7k3(@#inb((cs%5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.72', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['192.168.150.1', 'sigemcomae.sytes.net']
 
 
 # Application definition
@@ -113,7 +113,7 @@ DATABASES = {
         'NAME': 'emergenciasdb',
        'PASSWORD':'emergencias',
       'HOST':'localhost',
-      'PORT':'5432'
+      'PORT':'5433'
     },
 }
 
@@ -156,7 +156,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, '/home/sigemco/statics')
 
 
 STATICFILES_DIRS = [
@@ -188,10 +188,10 @@ LEAFLET_CONFIG = {
     'maxZoom': 20,
     'subdomains':['mt0','mt1','mt2','mt3']
 }),
-    ('Argis', 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    ('Argis', 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
         'attribution': '&copy',
         'maxZoom': 18,
-        }),('Argenmap','http://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0.0/capabaseargenmap@EPSG%3A3857@png/{z}/{x}/{y}.png', {
+        }),('Argenmap','https://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0.0/capabaseargenmap@EPSG%3A3857@png/{z}/{x}/{y}.png', {
 		    'tms': 'true',
 		    'maxZoom': 21,
 		    'attribution': 'atrib_ign'
