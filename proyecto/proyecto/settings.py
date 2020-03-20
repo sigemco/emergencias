@@ -25,7 +25,8 @@ SECRET_KEY = 'svgiw=kkkila#z3=xp^2!fd0@o#u0pvi6(d7k3(@#inb((cs%5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','localhost','192.168.150.1', 'sigemcomae.sytes.net']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost',
+                 '192.168.150.1', 'sigemcomae.sytes.net']
 
 
 # Application definition
@@ -92,7 +93,8 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                'django.template.context_processors.media', #https://simpleisbetterthancomplex.com/tutorial/2016/08/01/how-to-upload-files-with-django.html
+                # https://simpleisbetterthancomplex.com/tutorial/2016/08/01/how-to-upload-files-with-django.html
+                'django.template.context_processors.media',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -110,16 +112,15 @@ WSGI_APPLICATION = 'proyecto.wsgi.application'
 
 DATABASES = {
     'default': {
-        #'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'USER': 'emergencias',
         'NAME': 'emergenciasdb',
-       'PASSWORD':'emergencias',
-      'HOST':'localhost',
-      'PORT':'5432'
+        'PASSWORD': 'emergencias',
+        'HOST': 'localhost',
+        'PORT': '5432'
     },
 }
-
 
 
 # Password validation
@@ -159,14 +160,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-#STATIC_ROOT = os.path.join(BASE_DIR, '/home/sigemco/statics')
-#STATIC_ROOT = os.path.join(BASE_DIR, '/home/raul/statics')
+STATIC_ROOT = os.path.join(BASE_DIR, '/home/sigemco/statics')
+
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-#https://simpleisbetterthancomplex.com/tutorial/2016/08/01/how-to-upload-files-with-django.html
+# https://simpleisbetterthancomplex.com/tutorial/2016/08/01/how-to-upload-files-with-django.html
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -177,42 +178,42 @@ LOGOUT_REDIRECT_URL = '/'
 AUTH_USER_MODEL = 'core.UserSigemco'
 
 LEAFLET_CONFIG = {
-'DEFAULT_CENTER': (-40.66,-58.72),
-'DEFAULT_ZOOM': 4,
-'MIN_ZOOM': 3,
-'MAX_ZOOM': 18,
-'TILES': [('OSM','http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{'attribution': '&copy; Big eye', 'maxZoom': 16}),
-          ('Rutas','https://{s}.google.com/vt/lyrs=m@221097413,traffic&x={x}&y={y}&z={z}', { 'maxZoom': 20,'minZoom': 2,
-                            'subdomains': ['mt0', 'mt1', 'mt2', 'mt3'],
-    }),('Relieve','http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}',{
-    'maxZoom': 20,
-    'subdomains':['mt0','mt1','mt2','mt3']}),
-    ('Hibrido','http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}',{
-    'maxZoom': 20,
-    'subdomains':['mt0','mt1','mt2','mt3']
-}),
-    ('Argis', 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-        'attribution': '&copy',
-        'maxZoom': 18,
-        }),('Argenmap','https://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0.0/capabaseargenmap@EPSG%3A3857@png/{z}/{x}/{y}.png', {
-		    'tms': 'true',
-		    'maxZoom': 21,
-		    'attribution': 'atrib_ign'
-			}),],
+    'DEFAULT_CENTER': (-40.66, -58.72),
+    'DEFAULT_ZOOM': 4,
+    'MIN_ZOOM': 3,
+    'MAX_ZOOM': 18,
+    'TILES': [('OSM', 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {'attribution': '&copy; Big eye', 'maxZoom': 16}),
+              ('Rutas', 'https://{s}.google.com/vt/lyrs=m@221097413,traffic&x={x}&y={y}&z={z}', {'maxZoom': 20, 'minZoom': 2,
+                                                                                                 'subdomains': ['mt0', 'mt1', 'mt2', 'mt3'],
+                                                                                                 }), ('Relieve', 'http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {
+                                                                                                     'maxZoom': 20,
+                                                                                                     'subdomains': ['mt0', 'mt1', 'mt2', 'mt3']}),
+              ('Hibrido', 'http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+                  'maxZoom': 20,
+                  'subdomains': ['mt0', 'mt1', 'mt2', 'mt3']
+              }),
+              ('Argis', 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                  'attribution': '&copy',
+                  'maxZoom': 18,
+              }), ('Argenmap', 'https://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0.0/capabaseargenmap@EPSG%3A3857@png/{z}/{x}/{y}.png', {
+                  'tms': 'true',
+                  'maxZoom': 21,
+                  'attribution': 'atrib_ign'
+              }), ],
 
-'OVERLAYS': [],
-'PLUGINS': {
-'leafletCSV': {
-        'js': 'app/lib/leaflet/leaflet.geocsv.js',
-        'auto-include': True,
-    },
-'cartodb': {
-        'js': 'app/lib/leaflet/L.CartoDB.js',
-        'auto-include': True,
-    },
+    'OVERLAYS': [],
+    'PLUGINS': {
+        'leafletCSV': {
+            'js': 'app/lib/leaflet/leaflet.geocsv.js',
+            'auto-include': True,
+        },
+        'cartodb': {
+            'js': 'app/lib/leaflet/L.CartoDB.js',
+            'auto-include': True,
+        },
 
 
-}
+    }
 
 
 }
