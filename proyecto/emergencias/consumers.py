@@ -52,7 +52,7 @@ class EmergenciasConsumer(AsyncJsonWebsocketConsumer):
 
 	async def user_update(self, event):
 			await self.send_json(event)
-			print('user_update', event)
+			#print('user_update', event)
 
 	async def usuario_en_linea(self):
 		users = UserSigemco.objects.all()

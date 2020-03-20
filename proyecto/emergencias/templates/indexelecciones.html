@@ -1,49 +1,43 @@
-
 {% extends 'index.html' %}
 {% load static %}
 {% load leaflet_tags %}
-
-{% block extra_css %} {% leaflet_css %}
+{% block extra_css %}
+{% leaflet_css %}
 <style>
-
-    .leaflet-container {  /* all maps */
-          height: 600px;
+    .leaflet-container {
+        /* all maps */
+        height: 510px;
     }
-
-    </style>
+</style>
 {% endblock %}
+{% block contenido %}
+<div class="br-pageheader">
+    <nav class="breadcrumb pd-0 mg-0 tx-12">
+        <a class="breadcrumb-item" href="{{'/'}}">Inicio</a>
+        <!--<a class="breadcrumb-item" href="#">Maps</a>-->
+        <span class="breadcrumb-item active">Mapa</span>
+    </nav>
+</div>
+<!-- br-pageheader -->
+<div class="br-pagetitle">
+    <!-- <i class="icon icon ion-ios-navigate-outline"></i>-->
+    <div>
+        <h4>Mapa</h4>
+        <!--<p class="mg-b-0">Detalle de la situación sanitaria.</p>-->
+    </div>
+</div>
 
-
-
-{% block panelderecho %}
-{% endblock panelderecho %}
-
-
-
-
- {% block contenido %}
-
-
-
-{% leaflet_map "map" callback="window.map_init" %}
-
-
-
-
-
+<div class="br-pagebody">
+    <!--<div class="br-section-wrapper">-->
+    {% leaflet_map "map" callback="window.map_init" %}
+    <!--</div>-->
+</div>
 {% endblock %}
-{% block extra_js %}{% leaflet_js %}
+{% block extra_js %}
+{% leaflet_js %}
 <script type="text/javascript">
-
-
-function map_init(map, options) {
-   {% include 'capasExtra.js' %}
-  };
-//    console.log('pepe');
-//}
-
-
-
+    function map_init(map, options) {
+        {% include 'capasExtra.js' %}
+    };
 </script>
-
 {% endblock %}
