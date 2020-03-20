@@ -1,82 +1,33 @@
 {% extends 'signin-video.html'%}
-
-{# -Por ahora no uso esta libreria % load crispy_forms_tags % #}
 {% load widget_tweaks %}
 
-{% block fomulario %}
-      <div class="login-wrapper wd-300 wd-xs-350 pd-25 pd-xs-40 rounded bg-black-6">
-        <div class="signin-logo tx-center tx-28 tx-bold tx-white"><span class="tx-normal">[</span> SIGEMCO <span class="tx-info">MAE</span> <span class="tx-normal">]</span></div>
-  <div class="tx-white-5 tx-center mg-b-20">Asistencia en emergencias</div>
-        <form method="post" novalidate>
-                        {% csrf_token %}
-                        {% if form.non_field_errors %}
-                        <div class="alert alert-danger" role="alert">
-                            {% for error in form.non_field_errors %}
-                            <p {% if forloop.last %} class="mb-0" {% endif %}>{{ error }}</p>
-                            {% endfor %}
-                        </div>
-                        {% endif %}
-                        {% for hidden in form.hidden_fields %}
-                        {{ hidden }}
-                        {% endfor %}
-                        {% for field in form.visible_fields %}
-                        <div class="form-group mb-3">
-                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                            {{ field|add_class:'form-control' }}
-                            {% for error in field.errors %}
-                            <span class="text-danger help-block">{{ error }}</span>
-                            {% endfor %}
-                            {% if field.help_text %}
-                            <small class="form-text text-muted">
-                                {{ field.help_text|safe }}
-                            </small>
-                            {% endif %}
-                        </div>
-                        {% endfor %}
-                         <button type="submit" class="btn btn-info btn-block">Iniciar sesión</button>
-                    </form>
-      </div><!-- login-wrapper -->
-      {% endblock  %}
-    <!-- d-flex -->
-
-<!--
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-lg-4 col-md-6 col-sm-8">
-            <div class="card">
-                <div class="card-body login-card-body">
-                     <p class="login-box-msg">Inicie sesión para usar el sistema</p>
-                    <form method="post" novalidate>
-                        {% csrf_token %}
-                        {% if form.non_field_errors %}
-                        <div class="alert alert-danger" role="alert">
-                            {% for error in form.non_field_errors %}
-                            <p {% if forloop.last %} class="mb-0" {% endif %}>{{ error }}</p>
-                            {% endfor %}
-                        </div>
-                        {% endif %}
-                        {% for hidden in form.hidden_fields %}
-                        {{ hidden }}
-                        {% endfor %}
-                        {% for field in form.visible_fields %}
-                        <div class="form-group mb-3">
-                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                            {{ field|add_class:'form-control' }}
-                            {% for error in field.errors %}
-                            <span class="text-danger help-block">{{ error }}</span>
-                            {% endfor %}
-                            {% if field.help_text %}
-                            <small class="form-text text-muted">
-                                {{ field.help_text|safe }}
-                            </small>
-                            {% endif %}
-                        </div>
-                        {% endfor %}
-                        <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+{% block contenido %}
+<form method="post" novalidate>
+    {% csrf_token %}
+    {% if form.non_field_errors %}
+    <div class="alert alert-danger" role="alert">
+        {% for error in form.non_field_errors %}
+        <p {% if forloop.last %} class="mb-0" {% endif %}>{{ error }}</p>
+        {% endfor %}
     </div>
-</div>
--->
+    {% endif %}
+    {% for hidden in form.hidden_fields %}
+    {{ hidden }}
+    {% endfor %}
+    {% for field in form.visible_fields %}
+    <div class="form-group mb-3">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field|add_class:'form-control' }}
+        {% for error in field.errors %}
+        <span class="text-danger help-block">{{ error }}</span>
+        {% endfor %}
+        {% if field.help_text %}
+        <small class="form-text text-muted">
+            {{ field.help_text|safe }}
+        </small>
+        {% endif %}
+    </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-info btn-block">Iniciar sesión</button>
+</form>
+{% endblock contenido %}}
