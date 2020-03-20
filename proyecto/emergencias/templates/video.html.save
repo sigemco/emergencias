@@ -1,0 +1,78 @@
+
+{% extends 'index.html' %}
+{% load static %}
+{% load leaflet_tags %}
+
+{% block extra_css %} {% leaflet_css %}
+<style>
+
+    .leaflet-container {  /* all maps */
+          height: 600px;
+    }
+
+    </style>
+{% endblock %}
+
+
+
+{% block panelderecho %}
+{% endblock panelderecho %}
+{% block listamenu %}
+
+<li class="br-menu-item">
+          <a href="/" class="br-menu-link active">
+            <i class="menu-item-icon icon ion-android-map tx-24"></i>
+            <span class="menu-item-label">Mapa</span>
+          </a><!-- br-menu-link -->
+        </li><!-- br-menu-item -->
+        <li class="br-menu-item">
+          <a href="https://video-ruklan.ddns.net/" class="br-menu-link ">
+            <i class="menu-item-icon icon ion-ios-videocam tx-24"></i>
+            <span class="menu-item-label">Videollamada</span>
+          </a><!-- br-menu-link -->
+        </li>
+        <li class="br-menu-item">
+          <a href="https://sigemcofuego.sytes.net/gps/" class="br-menu-link ">
+            <i class="menu-item-icon icon ion-android-bus tx-24"></i>
+            <span class="menu-item-label">Segimiento</span>
+          </a><!-- br-menu-link -->
+        </li>
+       <li class="br-menu-item">
+          <a href="https://pbx-coffaa.ddns.net" class="br-menu-link ">
+            <i class="menu-item-icon icon ion-android-mail tx-24"></i>
+            <span class="menu-item-label">Correo</span>
+          </a><!-- br-menu-link -->
+        </li>
+
+       <li class="br-menu-item">
+          <a href="/admin" class="br-menu-link ">
+            <i class="menu-item-icon icon ion-android-folder-open tx-24"></i>
+            <span class="menu-item-label">Administración</span>
+          </a><!-- br-menu-link -->
+        </li>
+
+{% endblock listamenu %}
+
+
+
+ {% block contenido %}
+
+
+
+ <video width="100%" controls>
+  <source src="/filer/canonical/1584624364/1/" type="video/mp4">
+
+Su navegador no sopora html5
+</video>
+
+
+
+
+
+{% endblock %}
+{% block extra_js %}{% leaflet_js %}
+
+//    console.log('pepe');
+//}
+
+

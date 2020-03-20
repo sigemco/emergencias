@@ -47,6 +47,9 @@ INSTALLED_APPS = [
     'bootstrap4',
     'guardian',
     'groups_manager',
+    'easy_thumbnails',
+    'filer',
+    'mptt',
 ]
 
 AUTHENTICATION_BACKENDS = (

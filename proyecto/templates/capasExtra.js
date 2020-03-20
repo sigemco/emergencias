@@ -25,7 +25,7 @@ onEachFeature: function (feature, layer) {
   longitudeTitle:'Longitude'
   });
   //map.addLayer(geoLayer);
-  $.get('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-16-2020.csv', function(csv) {
+  $.get('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-18-2020.csv', function(csv) {
     covid19.addData(csv);
 
   })

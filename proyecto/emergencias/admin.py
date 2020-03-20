@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Estado, Persona, Grado, Especialidad, TipOperacion, TipoTransporte,  Medios, CentroSalud, Efectos, OperacionesEnDesarrollo, Unidades
+from .models import Estado, Persona, Grado, Especialidad, TipOperacion, TipoTransporte,  Medios, CentroSalud, Efectos, OperacionesEnDesarrollo, Unidades, provincia, partido, CCZE
 from datetime import datetime
 from django.http import HttpResponse
 from io import BytesIO
@@ -61,8 +61,21 @@ class EspecialidadAdmin(admin.ModelAdmin):
 @admin.register(OperacionesEnDesarrollo)
 class OperacionesEnDesarrolloAdmin(admin.ModelAdmin):
     list_display = ('titulo','mision','objetivo','tipoperacion')
-    autocomplete_fields = ['efectos','centrosalud', 'personal','tipotransporte']
 
+@admin.register(provincia)
+class ProvinciaAdmin(admin.ModelAdmin):
+    list_display = ('provincia',)
+    
+
+@admin.register(partido)
+class PartidoAdmin(admin.ModelAdmin):
+    list_display = ('partido',)
+
+class CCZEAdmin(LeafletGeoAdmin):
+    list_display = ('denominacion', 'comando',)
+    
+
+admin.site.register(CCZE, CCZEAdmin)
 
 
 @admin.register(Estado)

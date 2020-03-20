@@ -1,0 +1,90 @@
+
+{% extends 'index.html' %}
+{% load static %}
+{% load leaflet_tags %}
+
+{% block extra_css %} {% leaflet_css %}
+<style>
+
+    .leaflet-container {  /* all maps */
+          height: 600px;
+    }
+
+    </style>
+{% endblock %}
+
+
+
+{% block panelderecho %}
+{% endblock panelderecho %}
+{% block titulo %}
+<h4>Estado de situación COVID-19 - <a href='/filer/canonical/1584632172/2/'>Archivo pdf</a><h4>
+{% endblock titulo %}
+
+{% block listamenu %}
+  <li class="br-menu-item">
+          <a href="/" class="br-menu-link ">
+            <i class="menu-item-icon icon ion-android-map tx-24"></i>
+            <span class="menu-item-label">Mapa</span>
+          </a><!-- br-menu-link -->
+        </li><!-- br-menu-item -->
+        <li class="br-menu-item">
+          <a href="https://video-ruklan.ddns.net/" class="br-menu-link ">
+            <i class="menu-item-icon icon ion-laptop tx-24"></i>
+            <span class="menu-item-label">Videollamada</span>
+          </a><!-- br-menu-link -->
+        </li>
+        <li class="br-menu-item">
+          <a href="https://sigemcofuego.sytes.net/gps/" class="br-menu-link ">
+            <i class="menu-item-icon icon ion-android-bus tx-24"></i>
+            <span class="menu-item-label">Segimiento</span>
+          </a><!-- br-menu-link -->
+        </li>
+       <li class="br-menu-item">
+          <a href="https://pbx-coffaa.ddns.net" class="br-menu-link ">
+            <i class="menu-item-icon icon ion-android-mail tx-24"></i>
+            <span class="menu-item-label">Correo</span>
+          </a><!-- br-menu-link -->
+        </li>
+
+       <li class="br-menu-item">
+          <a href="/admin" class="br-menu-link ">
+            <i class="menu-item-icon icon ion-android-folder-open tx-24"></i>
+            <span class="menu-item-label">Administración</span>
+          </a><!-- br-menu-link -->
+        </li>
+         <li class="br-menu-item">
+          <a href="#" class="br-menu-link with-sub active show-sub">
+            <i class="menu-item-icon icon ion-ios-videocam tx-20"></i>
+            <span class="menu-item-label">Briefing</span>
+          </a><!-- br-menu-link -->
+          <ul class="br-menu-sub">
+            <li class="sub-item"><a href="/video" class="sub-link active">Video</a></li>
+
+
+
+{% endblock listamenu %}
+
+
+
+ {% block contenido %}
+
+
+
+ <video width="100%" controls>
+  <source src="/filer/canonical/1584624364/1/" type="video/mp4">
+
+Su navegador no sopora html5
+</video>
+
+
+
+
+
+{% endblock contenido %}
+
+
+//    console.log('pepe');
+//}
+
+

@@ -18,7 +18,8 @@ from core.models import UserSigemco
 @login_required
 def vistaIndex(request):
     return render(request, 'indexelecciones.html')
-
+def vistaVideo(request):
+    return render(request, 'video.html')
 
 def usuarios(request):
     users = UserSigemco.objects.all()

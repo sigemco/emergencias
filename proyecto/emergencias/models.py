@@ -247,3 +247,57 @@ class OperacionesEnDesarrollo(models.Model):
 
     def __str__(self):
         return self.operacion
+
+
+class provincia(models.Model):
+    """Model definition for provincia."""
+
+    # TODO: Define fields here
+    provincia = models.CharField(max_length=100, null=True, blank=False)
+
+    class Meta:
+        """Meta definition for provincia."""
+        
+
+        verbose_name = 'provincia'
+        verbose_name_plural = 'provincias'
+
+    def __str__(self):
+        """Unicode representation of provincia."""
+        return self.provincia
+
+class partido(models.Model):
+    """Model definition for partido."""
+
+    # TODO: Define fields here
+    partido = models.CharField(max_length=100, null=True, blank=False)
+
+    class Meta:
+        """Meta definition for partido."""
+
+        verbose_name = 'partido'
+        verbose_name_plural = 'partidos'
+
+    def __str__(self):
+        """Unicode representation of partido."""
+        return partido
+
+class CCZE(models.Model):
+    """Model definition for CCZE."""
+
+    # TODO: Define fields here
+    denominacion = models.CharField(max_length=100, null=True, blank=False)
+    comando = models.CharField(max_length=100, null=True, blank=False) #la unidad de donde depende el CCZE
+    respTerrProvincia = models.ManyToManyField(provincia)
+    respTerrPartido = models.ForeignKey(partido, on_delete=False)
+    ubicacion = geomodels.GeometryCollectionField()
+
+    class Meta:
+        """Meta definition for CCZE."""
+
+        verbose_name = 'CCZE'
+        verbose_name_plural = 'CCZEs'
+
+    def __str__(self):
+        """Unicode representation of CCZE."""
+        pass
