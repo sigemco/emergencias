@@ -280,7 +280,7 @@ class partido(models.Model):
 
     def __str__(self):
         """Unicode representation of partido."""
-        return partido
+        return self.partido
 
 class CCZE(models.Model):
     """Model definition for CCZE."""
